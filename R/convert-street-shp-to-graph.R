@@ -20,7 +20,7 @@ library(RColorBrewer)
 
 chicagocrs = '+proj=utm +zone=16 +ellps=WGS84 +datum=WGS84 +units=m +no_defs' 
 
-streets = readOGR("/Users/dottler/Dropbox/thesis/data/network-chicago/edges/", layer = "edges") 
+streets = readOGR("/Users/dottler/Dropbox/thesis/data/network-sacramento/edges/", layer = "edges") 
 proj4string(streets) = CRS("+init=epsg:4326")
 streets %<>% spTransform(CRS("+init=epsg:4326"))
 projection(streets)
@@ -59,7 +59,7 @@ proj4string(intersections_data_frame ) = CRS("+init=epsg:4326")
 intersections_data_frame %<>% spTransform(CRS("+init=epsg:4326"))
 
 #' Save SpatialPointsDataFrame
-writePointsShape(intersections_data_frame, "../Desktop/Git/thesis-qmss/data/chicago_nodes_proj.shp")
+writePointsShape(intersections_data_frame, "../Desktop/Git/thesis-qmss/data/sacramento_nodes_2.shp")
 
 ##' Convert back the graph object to a shapefile
 #' Create data frame with the information for all edges
@@ -97,7 +97,7 @@ proj4string(lines_df) = CRS("+init=epsg:4326")
 
 lines_df %<>% spTransform(CRS("+init=epsg:4326"))
 
-writeOGR(lines_df, dsn="../Desktop/Git/thesis-qmss/data/" ,layer="chicago_lines_proj_2",driver="ESRI Shapefile")
+writeOGR(lines_df, dsn="../Desktop/Git/thesis-qmss/data/" ,layer="pittsburgh_lines",driver="ESRI Shapefile")
 
 palette <- rev(brewer.pal(10, "RdYlBu")) #Spectral #RdYlBu
 
